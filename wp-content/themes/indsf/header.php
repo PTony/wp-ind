@@ -77,7 +77,8 @@
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<!-- SUBMENU 1 -->
 								<li class="col-lg-3 col-md-6">
-<?php wp_nav_menu( array('theme_location' => 'ecole-col1', 'fallback_cb' => false )); ?>
+<?php wp_nav_menu( array('theme_location' => 'ecole-col1', 'fallback_cb' => false,
+'menu_class' => "", )); ?>
 <!-- 								  <ul>
 								  	<li><a class="dropdown-header" href="ecole.php">Accueil de l'école</a></li>
 									<li class="divider"></li>
@@ -254,7 +255,7 @@
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<!-- SUBMENU 1 -->
 								<li class="col-lg-2">
-								<?php wp_nav_menu( array('theme_location' => 'lycee-col1', 'fallback_cb' => false)); ?>
+								<?php wp_nav_menu( array('theme_location' => 'lycee-col1', 'fallback_cb' => false,)); ?>
 								 	<!-- <ul>
 									  	<li><a class="dropdown-header" href="#">Lycée général</a></li>
 										<li class="divider"></li>

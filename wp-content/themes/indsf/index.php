@@ -1,3 +1,9 @@
+<?php 
+/* 
+Template Name: Homepage
+*/ 
+?>
+
 <?php get_header(); ?>
 		<!-- START CAROUSEL -->
 		<div id="my_carousel" class="carousel slide" data-ride="carousel">
