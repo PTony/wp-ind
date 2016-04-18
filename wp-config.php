@@ -22,10 +22,10 @@
 define('DB_NAME', 'ind-sf');
 
 /** Utilisateur de la base de données MySQL. */
-define('DB_USER', 'indsf');
+define('DB_USER', 'root');
 
 /** Mot de passe de la base de données MySQL. */
-define('DB_PASSWORD', 'indsf');
+define('DB_PASSWORD', 'root');
 
 /** Adresse de l'hébergement MySQL. */
 define('DB_HOST', 'localhost');
