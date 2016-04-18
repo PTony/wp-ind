@@ -13,6 +13,8 @@ function register_my_menus() {
       'lycee-col3' => __( 'Lycée 3ème colonne' ),
       'escc-col1' => __( 'ESCC 1ère colonne' ),
       'escc-col2' => __( 'ESCC 2ème colonne' ),
+      'footer-col1' => __( 'Footer colonne 1' ),
+      'footer-col2' => __( 'Footer colonne 2' ),
     )
   );
 }

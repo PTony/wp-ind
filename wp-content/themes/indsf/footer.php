@@ -19,22 +19,26 @@
 									</div>
 								</div>
 								<div class="footer_midle_right col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<ul>
+								<?php wp_nav_menu( array('theme_location' => 'footer-col1', 'fallback_cb' => false,
+'menu_class' => "", )); ?>
+									<!-- <ul>
 										<li class="footer_contact_titre"><span><b>Entrer en contact avec :</b></span></li></br>
 										<li><a href="./contact_ecole.php"><span>L'école Saint-Ferdinand</span></a></li>
 										<li><a href="./contact_college.php"><span>Le collège Notre-Dame</span></a></li>
 										<li><a href="./contact_lycee.php"><span>Le Lycée Notre-Dame</span></a></li>
 										<li><a href="./contact_escc.php"><span>L'enseignement supérieur</span></a></li>
-									</ul>
+									</ul> -->
 								</div>
 								<div class="footer_right col-lg-3 col-md-3 col-sm-6 col-xs-12">
-									<ul>
+								<?php wp_nav_menu( array('theme_location' => 'footer-col2', 'fallback_cb' => false,
+'menu_class' => "", )); ?>
+						<!-- 			<ul>
 										<li><span><b>Retrouvez également :</b></span></li></br>
 										<li><a href="*">Plan du site</a></li>
 										<li><a href="*"><span>Espace privé</span></a></li>
 										<li><a href="*"><span>Crédits</span></a></li>
 										<li><a href="*"><span>Mentions légales</span></a></li>
-									</ul>
+									</ul> -->
 							</div>				
 							<div class="footer_bottom col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 								<p>

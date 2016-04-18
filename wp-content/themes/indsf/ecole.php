@@ -4,22 +4,6 @@ Template Name: Niv2
 */ 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="">
-    	<link rel="icon" href="../favicon.ico">
-		<title>L'école Notre-Dame</title>
-		<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-		<script type="text/javascript" src="js/jquery.js"></script>
-	</head>
-	<body>
-		<div class="container-fluid cont-fluid">
 			<?php get_header(); ?>
 
 <!-- INTRO -->
