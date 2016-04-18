@@ -47,14 +47,6 @@
 			</header>
 		</div>
 		<!-- END HEADER -->
-<hr>
-<hr>
-<hr>
-<?php wp_nav_menu( array('theme_location' => 'college-col1', 'fallback_cb' => false)); ?>
-<hr>
-<?php wp_nav_menu( array('theme_location' => 'college-col2', 'fallback_cb' => false)); ?>
-<hr>
-<?php wp_nav_menu( array('theme_location' => 'college-col3', 'fallback_cb' => false)); ?>
 
 
 <?php	//wp_nav_menu(array('theme_location' => 'header-menu'));
@@ -179,8 +171,9 @@
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<!-- SUBMENU 1 -->
 								<li class="col-lg-2">
-								  <ul>
-								  	<li><a class="dropdown-header" href="#">L'établissement</a></li>
+<?php wp_nav_menu( array('theme_location' => 'college-col1', 'fallback_cb' => false)); ?>
+								  <!-- <ul> -->
+	<!-- 							  	<li><a class="dropdown-header" href="#">L'établissement</a></li>
 									<li class="divider"></li>
 									<li><a class="dropdown-header" href="#">Enseignement</a></li>
 									<li class="divider"></li>
@@ -192,26 +185,28 @@
 									<li><a href="#">Classe patrimoine</a></li>
 									<li><a href="#">Les options</a></li>	
 									<li><a class="dropdown-header" href="#">Le CDI</a></li>
-									<li class="divider"></li>
-								  </ul>
+		 -->							<!-- <li class="divider"></li> -->
+								  <!-- </ul> -->
 								</li>
 								<!-- SUBMENU 1 -->
 								<!-- SUBMENU 2 -->
 								<li class="col-lg-2">
-								  <ul>
+<?php wp_nav_menu( array('theme_location' => 'college-col2', 'fallback_cb' => false)); ?>								
+								  <!-- <ul>
 									<li><a class="dropdown-header" href="#">Vie au collège</a></li>
 									<li class="divider"></li>
 									<li><a href="#">Activités</a></li>
 									<li><a href="#">La pastorale</a></li>
 									<li><a href="#">L'infirmerie</a></li>
 									<li><a class="dropdown-header" href="#">L'actualité</a></li>
-									<li class="divider"></li>
-								  </ul>
+									<li class="divider"></li> -->
+								  <!-- </ul> -->
 								</li>
 								<!-- SUBMENU 2 -->
 								<!-- SUBMENU 3 -->
 								<li class="col-lg-2">
-								  <ul>
+<?php wp_nav_menu( array('theme_location' => 'college-col3', 'fallback_cb' => false)); ?>
+								  <!-- <ul>
 									<li><a class="dropdown-header" href="#">Informations pratiques</a></li>
 									<li class="divider"></li>
 									<li><a href="#">Téléchargements</a></li>
@@ -221,7 +216,7 @@
 									<li><a href="#">Radio grand ciel</a></li>
 									<li><a class="dropdown-header" href="#">Nous Contacter</a></li>
 									<li class="divider"></li>
-								  </ul>
+								  </ul> -->
 								</li>
 								<!-- SUBMENU 3 -->
 								<!-- SUBMENU 4 -->
@@ -247,13 +242,20 @@
 								<!-- SUBMENU 4 -->
 							</ul>
 					</li>
+
+
+
+
+
+
 					<!-- LYCEE -->
 					<li class="dropdown mega-dropdown">
 						<a href="#" class="link-nav link-nav-lycee dropdown-toggle" data-toggle="dropdown">LYCÉES </a>
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<!-- SUBMENU 1 -->
 								<li class="col-lg-2">
-								 	<ul>
+								<?php wp_nav_menu( array('theme_location' => 'lycee-col1', 'fallback_cb' => false)); ?>
+								 	<!-- <ul>
 									  	<li><a class="dropdown-header" href="#">Lycée général</a></li>
 										<li class="divider"></li>
 										<li><a href="#">Seconde</a></li>
@@ -265,12 +267,13 @@
 										<li><a class="dropdown-header" href="#">International</a></li>
 										<li class="divider"></li>
 										<li><a class="dropdown-header" href="#">Vie culturelle</a></li>
-									</ul>	
+									</ul>	 -->
 								</li>
 								<!-- SUBMENU 1 -->
 								<!-- SUBMENU 2 -->
 								<li class="col-lg-2">
-									<ul>
+								<?php wp_nav_menu( array('theme_location' => 'lycee-col2', 'fallback_cb' => false)); ?>
+									<!-- <ul>
 										<li><a class="dropdown-header" href="#">Lycée technologique</a></li>
 										<li class="divider"></li>
 										<li><a href="#">Série STMG</a></li>
@@ -279,13 +282,14 @@
 										<li><a href="#">Résultats</a></li>
 										<li><a class="dropdown-header" href="#">Le CDI</a></li>
 										<li class="divider"></li>
-									</ul>	
+									</ul>	 -->
 								</li>
 								</li>
 								<!-- SUBMENU 2 -->
 								<!-- SUBMENU 3 -->
 								<li class="col-lg-2">
-								  <ul>
+								<?php wp_nav_menu( array('theme_location' => 'lycee-col3', 'fallback_cb' => false)); ?>
+								 <!--  <ul>
 									<li><a class="dropdown-header" href="#">Lycée professionnel</a></li>
 									<li class="divider"></li>
 									<li><a href="#">3ème Prépa Pro</a></li>
@@ -300,7 +304,7 @@
 									<li><a href="#">Radio grand ciel</a></li>
 									<li><a class="dropdown-header" href="#">Nous Contacter</a></li>
 									<li class="divider"></li>	
-								  </ul>
+								  </ul> -->
 								</li>
 								<!-- SUBMENU 3 -->
 								<!-- SUBMENU 4 -->
@@ -347,13 +351,20 @@
 								<!-- SUBMENU 5 -->
 							</ul>
 					</li>
+
+
+
+
+
+
 					<!-- ESCC SUPERIEUR -->
 					<li class="dropdown mega-dropdown">
 						<a href="#" class="link-nav link-nav-escc dropdown-toggle" data-toggle="dropdown">ESCC SUPERIEUR </a>
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<!-- SUBMENU 1 -->
 								<li class="col-lg-3">
-								  <ul>
+								<?php wp_nav_menu( array('theme_location' => 'escc-col1', 'fallback_cb' => false)); ?>
+								 <!--  <ul>
 									<li><a class="dropdown-header" href="#">BTS Chimie</a></li>
 									<li class="divider"></li>
 									<li><a class="dropdown-header" href="#">BTS Métiers de la Chimie</a></li>
@@ -366,12 +377,13 @@
 									<li class="divider"></li>
 									<li><a class="dropdown-header" href="#">BTS Comptabilité</a></li>
 									<li class="divider"></li>
-								  </ul>
+								  </ul> -->
 								</li>
 								<!-- SUBMENU 1 -->
 								<!-- SUBMENU 2 -->
 								<li class="col-lg-3">
-								  <ul>
+								<?php wp_nav_menu( array('theme_location' => 'escc-col2', 'fallback_cb' => false)); ?>
+								 <!--  <ul>
 									<li><a class="dropdown-header" href="#">Informations pratiques</a></li>
 									<li class="divider"></li>
 									<li><a href="#">Nous contacter</a></li>
@@ -382,7 +394,7 @@
 									<li class="divider"></li>
 									<li><a href="#">Activité</a></li>
 									<li><a href="#">L'infirmerie</a></li>
-								  </ul>
+								  </ul> -->
 								</li>
 								<!-- SUBMENU 2 -->
 								<!-- SUBMENU 3 -->

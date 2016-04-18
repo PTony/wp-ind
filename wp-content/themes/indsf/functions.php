@@ -8,6 +8,11 @@ function register_my_menus() {
       'college-col1' => __( 'Collège 1ère colonne' ),
       'college-col2' => __( 'Collège 2ème colonne' ),
       'college-col3' => __( 'Collège 3ème colonne' ),
+      'lycee-col1' => __( 'Lycée 1ère colonne' ),
+      'lycee-col2' => __( 'Lycée 2ème colonne' ),
+      'lycee-col3' => __( 'Lycée 3ème colonne' ),
+      'escc-col1' => __( 'ESCC 1ère colonne' ),
+      'escc-col2' => __( 'ESCC 2ème colonne' ),
     )
   );
 }
