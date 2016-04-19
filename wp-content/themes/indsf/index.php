@@ -94,7 +94,7 @@ get_header(); ?>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 actu1">
 						<img class="img-responsive" src=' <?php the_post_thumbnail_url(); ?> ' alt="bourses">
 						<h3><?php the_title(); ?></h3>
-						<p class="postmetadata"><?php the_time('j F Y') ?> par <?php the_author() ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
+						<p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
 						</p>						
 						<p><?php the_content(); ?></p>
 					</div>
@@ -107,20 +107,37 @@ get_header(); ?>
                 ?>
 				</div>
 				<div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12 horizontal">
-			<?php
-				if(have_posts()) : 
-					while(have_posts()) : the_post(); 
-			?>
-					<div class="news" id="post-<?php the_ID(); ?>">
-						<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-						<p class="postmetadata"><?php the_time('j F Y') ?> par <?php the_author() ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
-						</p>
-						<p><?php the_content(); ?></p>
-					</div>
-			<?php
-					endwhile;
-				endif;
-			?>
+<!-- ========================================== -->
+<!-- ========================================== -->
+		   <?php
+		    $thumbs = array(
+		                'posts_per_page' => 4,
+		                'meta_query' => array(array('key' => '_thumbnail_id',
+		                							'value' => '',
+		                							'compare' => ''
+		                	)) 
+		    );
+		    $newsWithoutPic = new WP_Query($thumbs);
+
+		    if($newsWithoutPic->have_posts()) : 
+		        while ($newsWithoutPic->have_posts() ) : $newsWithoutPic->the_post();
+		    ?>
+
+				<div class="news" id="post-<?php the_ID(); ?>">
+					<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+					<p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
+					</p>
+					<p><?php the_content(); ?></p>
+				</div>		        
+		   
+		    <?php
+		        endwhile;
+		    endif;
+
+		    // 4. On réinitialise à la requête principale (important)
+		    wp_reset_postdata();
+		    ?>
+
 				</div>
 			</div>
 		</div>		
