@@ -2,53 +2,62 @@
 /* 
 Template Name: Niv2
 */ 
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="">
-    	<link rel="icon" href="../favicon.ico">
-		<title>L'école Notre-Dame</title>
-		<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-		<script type="text/javascript" src="js/jquery.js"></script>
-	</head>
-	<body>
-		<div class="container-fluid cont-fluid">
-			<?php get_header(); ?>
+get_header(); ?>
 
 <!-- INTRO -->
 <div class="row conteneur-intro">
+<?php
+		// On execute un query pour récupérer la page souhaitée
+		$my_query = new WP_Query( array('pagename' => 'ecole/letablissement'));
+        // on boucle sur les résultat... (on ne trouve qu'une page enfaite, mais bon)
+        if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
+			//On recupère les metadonnées de la miniature
+			$thumb_img = get_post_meta( get_post_thumbnail_id() ); // Get post ID
+			// On initialise le text_alternatif qu'on utilisera pour la miniature
+			$thumb_title = get_post(get_post_thumbnail_id())->post_title; 
+			$thumb_alttext = empty($thumb_img['_wp_attachment_image_alt']['0'])? $thumb_title : $thumb_img['_wp_attachment_image_alt']['0']
+?> 
 	<div class="col-md-6">
-		<h2>L'ETABLISSEMENT</h2>
+		<h2><?php the_title(); ?></h2>
 		<div class="row cont-intro">
 			<div class="col-md-12 bandeau1">
-				<img src="./img/ecole_sf.png" alt="enfants"/>
-				<p>L'école Saint Ferdinand, connue à Chartres sous le nom de Saint Fer. est le groupe scolaire primaire de l'Institution Notre Dame. Saint-Ferdinand est installée rue Chanzy à Chartres. Nous avons la chance de disposer de beaux bâtiments rénovés et de beaucoup d'espace, en plein centre ville.
-
-				Nous avons 13 classes et une section CLIS, 35 professionnels (enseignants, ASEM, AVS, administration, intendance,...) forment nos 340 élèves.
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $thumb_alttext; ?>" title="<?php echo $thumb_title; ?>"/>
+				<p>
+					<?php the_content(); ?>
 				</p>
 			</div>
 		</div>
 	</div>
+<?php
+    endwhile;
+	endif;
+    // 4. On réinitialise à la requête principale (important)
+    wp_reset_postdata();
+?>
+
+<?php
+	if(have_posts()) : while (have_posts() ) : the_post();
+			//On recupère les metadonnées de la miniature
+			$thumb_img = get_post_meta( get_post_thumbnail_id() ); // Get post ID
+			// On initialise le text_alternatif qu'on utilisera pour la miniature
+			$thumb_title = get_post(get_post_thumbnail_id())->post_title; 
+			$thumb_alttext = empty($thumb_img['_wp_attachment_image_alt']['0'])? $thumb_title : $thumb_img['_wp_attachment_image_alt']['0']
+?> 
 	<div class="col-md-6">
-		<h2>L'ECOLE</h2>
+		<h2><?php the_title(); ?></h2>
 		<div class="row cont-intro">
 			<div class="col-md-12 bandeau2">
-				<img src="./img/Groupe_enfants_sf.jpg" alt="enfants"/>
-				<p>Située au cœur de la Ville de Chartres, l’école SAINT FERDINAND accueille 340 élèves de la PS au CM2 répartis sur 13 classes ordinaires et une CLIS.
-
-				C’est d’abord un lieu de transmission et d’acquisition  du savoir où la communauté éducative formée des personnels de l’établissement et des familles est invitée à réfléchir, agir pour toujours mieux accueillir, accompagner et favoriser la réussite et l’épanouissement de l’élève.</br>
-				Véronique Clairon, Directrice
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $thumb_alttext; ?>" title="<?php echo $thumb_title; ?>"/>
+				<p>
+					<?php the_content(); ?>
 				</p>
 			</div>
 		</div> 
 	</div>
+<?php
+    endwhile;
+	endif;
+?>
 </div>
 <!-- END INTRO -->
 
@@ -311,16 +320,4 @@ Template Name: Niv2
 <!-- END INFOS PRATIQUES -->
 
 			<?php get_footer(); ?>
-	 	</div>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    	<script src="../js/bootstrap.min.js"></script>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-	</body>
-</html>
+
