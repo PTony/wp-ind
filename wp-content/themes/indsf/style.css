@@ -1231,3 +1231,15 @@ td, th {
     border: 1px solid black;
     font-size: 13px;
 }
+
+/*TEMPLATE : BASE*/
+
+
+.template1 {
+	margin-left: 100px;
+}
+
+.template1 .titre-info h3 {
+	color: red;
+}
+

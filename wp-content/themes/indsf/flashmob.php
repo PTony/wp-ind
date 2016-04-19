@@ -1,8 +1,4 @@
-<?php 
-/* 
-Template Name: Base
-*/ 
-?>
+
 
 <?php get_header(); ?>
 
