@@ -82,62 +82,31 @@ get_header(); ?>
 			<h2>ACTUALITES</h2>
 			<div class="row cont-actu">	
 				<div class="row col-lg-6 col-md-6 col-sm-12 col-xs-12 vertical">
-				<?php
-				$thumbs = array(
-				            'posts_per_page' => 2,
-				            'meta_query' => array(array('key' => '_thumbnail_id')) 
-				);
-				$newsWithPic = new WP_Query($thumbs);
-				if($newsWithPic->have_posts()) : 
-					while ($newsWithPic->have_posts() ) : $newsWithPic->the_post();
-				?>
+<!-- ================================ -->
+    			<?php query_posts('category_name=actu-avec-vignette&&showposts=2'); ?>
+    			<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 actu1">
 						<img class="img-responsive" src=' <?php the_post_thumbnail_url(); ?> ' alt="bourses">
 						<h3><?php the_title(); ?></h3>
-						<p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
+						<!-- <p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?> -->
 						</p>						
 						<p><?php the_content(); ?></p>
 					</div>
-                <?php
-					endwhile;
-				endif;
-				
-				// 4. On réinitialise à la requête principale (important)
-				wp_reset_postdata();
-                ?>
+     			<?php endwhile;
+				endif; ?> 
 				</div>
 				<div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12 horizontal">
 <!-- ========================================== -->
-<!-- ========================================== -->
-		   <?php
-		    $thumbs = array(
-		                'posts_per_page' => 4,
-		                'meta_query' => array(array('key' => '_thumbnail_id',
-		                							'value' => '',
-		                							'compare' => ''
-		                	)) 
-		    );
-		    $newsWithoutPic = new WP_Query($thumbs);
-
-		    if($newsWithoutPic->have_posts()) : 
-		        while ($newsWithoutPic->have_posts() ) : $newsWithoutPic->the_post();
-		    ?>
-
-				<div class="news" id="post-<?php the_ID(); ?>">
-					<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-					<p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?>
-					</p>
-					<p><?php the_content(); ?></p>
-				</div>		        
-		   
-		    <?php
-		        endwhile;
-		    endif;
-
-		    // 4. On réinitialise à la requête principale (important)
-		    wp_reset_postdata();
-		    ?>
-
+    			<?php query_posts('category_name=actu-sans-vignette&&showposts=4'); ?>
+    			<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+					<div class="news" id="post-<?php the_ID(); ?>">
+						<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+						<!-- <p class="postmetadata"><?php the_time('j F Y') ?> | Cat&eacute;gorie: <?php the_category(', ') ?> | <?php comments_popup_link('Pas de commentaires', '1 Commentaire', '% Commentaires'); ?> <?php edit_post_link('Editer', ' &#124; ', ''); ?> -->
+						</p>
+						<p><?php the_content(); ?></p>
+					</div>	
+     			<?php endwhile;
+				endif; ?> 
 				</div>
 			</div>
 		</div>		
@@ -146,17 +115,11 @@ get_header(); ?>
 		<!-- INTERNATIONAL -->
 		<div class="international">
 			<div class="row cont-inter">
-				<h2>PROJET INTERNATIONAL</h2>
-				<h3>L’Institution Notre Dame est résolument engagée sur un projet International. En quoi consiste-t-il ?</h3>
-				<div class="row cont-inter">	
-					<div class="col-lg-offset-2 col-lg-3 col-md-offset-2 col-md-3 col-sm-12 col-xs-12 image">
-					<img src='<?php echo get_template_directory_uri(); ?>/img/carte.png' alt="carte">	
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 texte">
-						<p>Un enseignement centré sur la maitrise de l’anglais et pour une ouverture culturelle à l’international.</br>A l’Ecole Saint Ferdinand : cours d’anglais dès la maternelle.Au collège Notre Dame Depuis  2014 deux classes de 6ème  dites à « ouverture internationale » ont été mises en place : certains cours sont  enseignés partiellement en anglais, notamment en Histoire et Géographie, en Arts plastiques, en Mathématiques et en EPS. Plus une heure de conversation hebdomadaire en anglais avec un professeur natif. Ces deux classes actuellement en 5ème poursuivent la même logique.En 2015 une classe de 6ème à « ouverture internationale » a continué le projet.De plus, une classe bilangue anglais espagnol a été ouverte en 6ème.Au lycée général :A cette rentrée 2015 parmi les classes de Seconde l’une d’entre elles est à « ouverture internationale » avec également de l’enseignement en anglais en SVT, en SES et en Mathématiques.  <a href="./page3.html">lire la suite</a></p>	
-					</div>
-					<div class="col-lg-1 col-md-1"></div>
-				</div>
+			<?php
+				$art_proj_inter = get_post('462');
+			?>
+				<h2><?php echo $art_proj_inter->post_title; ?></h2>
+				<p><?php echo $art_proj_inter->post_content; ?></p>
 			</div>
 		</div>		
 		<!-- END INTERNATIONAL -->
