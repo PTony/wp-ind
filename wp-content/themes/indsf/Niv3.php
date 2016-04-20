@@ -5,6 +5,42 @@ Template Name: Niv3
 ?>
 
 <?php get_header(); ?>
+
+
+    <?php
+
+                    // 1. on défini ce que l'on veut
+
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 3,
+                        'category_name' => 'ecole-objectif3'
+                    );
+
+                    // 2. on exécute la query
+
+                    $my_query = new WP_Query($args);
+
+                    // 3. on lance la boucle !
+
+                    if($my_query->have_posts()) : while ($my_query->have_posts() ) : $my_query->the_post();
+                ?> 
+
+                        <div class="col-md-12 about_me"> 
+                            <?php the_content(); ?>
+                        </div>
+
+                <?php
+                    endwhile;
+                    endif;
+
+                    // 4. On réinitialise à la requête principale (important)
+
+                    wp_reset_postdata();
+                ?>
+
+
+
 	<div class="info-prat"
 
 	    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -24,18 +60,3 @@ Template Name: Niv3
 
 <?php get_footer(); ?>
 
-</div>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.js"></script>
-
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-	</body>
-</html>
