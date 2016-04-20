@@ -641,6 +641,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 	height: 35px;
 	line-height: 40px;
+	text-transform: uppercase;
 }
 
 .directeur h2{
@@ -1136,6 +1137,7 @@ actus-ecole .actu4:hover {
 	height: 35px;
 	padding: 7px 30px 7px 30px;
 	margin-bottom: 15px;
+	text-transform: uppercase;
 }
 
 /* Album photo */
